@@ -1,0 +1,11 @@
+{
+  "id": "moc-explorer",
+  "name": "MOC Explorer",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Interactive visualization and navigation for your Maps of Content (MOCs). Discover connections and explore your knowledge network.",
+  "author": "Claude Code",
+  "authorUrl": "https://github.com/anthropics/claude-code",
+  "fundingUrl": "https://github.com/sponsors/anthropics",
+  "isDesktopOnly": false
+}

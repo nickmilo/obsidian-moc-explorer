@@ -1,0 +1,303 @@
+/* MOC Explorer Plugin Styles */
+
+.moc-explorer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 10px;
+  background: var(--background-primary);
+}
+
+.moc-explorer-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.moc-explorer-toolbar button {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--interactive-normal);
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.moc-explorer-toolbar button:hover {
+  background: var(--interactive-hover);
+  border-color: var(--accent-color);
+}
+
+.moc-explorer-toolbar .mod-cta {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.moc-explorer-toolbar .dropdown {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  min-width: 120px;
+}
+
+.moc-explorer-toolbar .search-input {
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  min-width: 200px;
+  flex-grow: 1;
+}
+
+.moc-explorer-toolbar .search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.moc-viz-container {
+  flex: 1;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.moc-viz-container svg {
+  width: 100%;
+  height: 100%;
+  background: var(--background-secondary);
+}
+
+.moc-node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.moc-node:hover {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+}
+
+.links line {
+  transition: all 0.3s ease;
+}
+
+.links line:hover {
+  stroke-width: 3px !important;
+  opacity: 0.8 !important;
+}
+
+.moc-stats-panel {
+  margin-top: 15px;
+  padding: 15px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.moc-stats-panel h3 {
+  margin: 0 0 15px 0;
+  color: var(--text-accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 12px;
+  background: var(--background-primary);
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  transition: all 0.2s;
+}
+
+.stat-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Tooltip Styles */
+.moc-tooltip {
+  position: absolute;
+  background: var(--background-primary);
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-width: 250px;
+  pointer-events: none;
+}
+
+.tooltip-title {
+  font-weight: 600;
+  color: var(--text-accent);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.tooltip-content {
+  font-size: 0.85rem;
+  color: var(--text-normal);
+  line-height: 1.4;
+}
+
+.tooltip-content div {
+  margin-bottom: 4px;
+}
+
+.tooltip-content div:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark theme support */
+.theme-dark .moc-explorer-container {
+  background: var(--background-primary);
+}
+
+.theme-dark .moc-viz-container svg {
+  background: var(--background-secondary);
+}
+
+/* Light theme adjustments */
+.theme-light .moc-node {
+  stroke: #333 !important;
+}
+
+.theme-light .links line {
+  stroke: #7c3aed !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .moc-explorer-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .moc-explorer-toolbar > * {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  
+  .moc-explorer-toolbar > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .moc-viz-container {
+    height: 400px;
+  }
+}
+
+/* Animation classes */
+.moc-node-enter {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.moc-node-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s ease;
+}
+
+.moc-link-enter {
+  stroke-dasharray: 5, 5;
+  animation: dash 2s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Loading states */
+.moc-explorer-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.moc-explorer-loading::before {
+  content: "⏳ ";
+  margin-right: 8px;
+}
+
+/* Error states */
+.moc-explorer-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--text-error);
+  text-align: center;
+  padding: 20px;
+}
+
+.moc-explorer-error::before {
+  content: "⚠️ ";
+  margin-right: 8px;
+}
+
+/* Custom scrollbar for stats panel */
+.moc-stats-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.moc-stats-panel::-webkit-scrollbar-track {
+  background: var(--background-modifier-border);
+  border-radius: 3px;
+}
+
+.moc-stats-panel::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 3px;
+}
+
+.moc-stats-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color-hover);
+}

@@ -119,7 +119,7 @@ build/Release
 # node_modules
 
 # Built files
-main.js
+# main.js (needed for BRAT)
 *.js.map
 
 # IDEs
